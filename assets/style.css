@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-size: 15px;
+    line-height: 1.5;
 }
 
 html {
@@ -78,7 +79,7 @@ html {
 #slider {
     position: relative;
     margin-top: 46px;
-    background: url(/assets/image/chicago.jpg) top center/ cover no-repeat;
+    background: url(../assets/image/chicago.jpg) top center/ cover no-repeat;
     padding-top: 50%;
     z-index: -1;
 }
@@ -210,7 +211,7 @@ html {
 }
 
 .tour-buy__item {
-    background-color: #000;
+    background-color: #fff;
     width: calc(33.3333% - 10.5px);
 }
 
@@ -345,6 +346,10 @@ html {
     opacity: 0.9;
 }
 
+.footer-social i:hover {
+    opacity: 0.5;
+}
+
 .footer-author {
     text-align: center;
     opacity: 0.8;
@@ -353,4 +358,108 @@ html {
 
 .footer-author a {
     color: #000000;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-container {
+    position: relative;
+    width: 900px;
+    max-width: calc(100% -32px);
+    min-height: 200px;
+    background-color: #fff;
+    animation: modalFadeIn ease 0.5s;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px 16px;
+}
+
+.modal-close:hover {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+
+.modal-header {
+    color: #fff;
+    background-color: #009688;
+    height: 129px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+
+.modal-header i {
+    font-size: 30px;
+}
+
+.modal-body {
+    padding: 16px 16px 0 16px;
+}
+
+.modal-label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.modal-input {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 8px;
+}
+
+.modal-btn-buy {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background-color: #009688;
+    color: #fff;
+    border: none;
+}
+
+.modal-btn-buy:hover {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+
+.modal-footer {
+    margin: 31px 0;
+    text-align: right;
+}
+
+.modal-footer a {
+    color: #009688;
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-140px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

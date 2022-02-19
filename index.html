@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Band</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+
 </head>
 
 <body>
@@ -16,10 +17,10 @@
         <div id="header">
             <div class="header-nav">
                 <ul class="header-nav__list">
-                    <li class="header-nav__item"><a href="#">HOME</a></li>
-                    <li class="header-nav__item"><a href="#">BAND</a></li>
-                    <li class="header-nav__item"><a href="#">TOUR</a></li>
-                    <li class="header-nav__item"><a href="#">CONTACT</a></li>
+                    <li class="header-nav__item"><a href="#slider">HOME</a></li>
+                    <li class="header-nav__item"><a href="#about">BAND</a></li>
+                    <li class="header-nav__item"><a href="#tour">TOUR</a></li>
+                    <li class="header-nav__item"><a href="#contact">CONTACT</a></li>
                     <li class="header-nav__item"><a class="header-nav__lnk" href="#">MORE<i class="fa-solid fa-sort-down"></i></a>
                         <ul class="header-sub-nav">
                             <li><a href="#">Merchandise</a></li>
@@ -49,15 +50,15 @@
                 <div class="about-image">
                     <div class="about-image__member">
                         <p style="font-size:17px">Name</p>
-                        <img src="assets/image/bandmember.jpg" alt="" class="img-member">
+                        <img src="./assets/image/bandmember.jpg" alt="" class="img-member">
                     </div>
                     <div class="about-image__member">
                         <p style="font-size:17px">Name</p>
-                        <img src="assets/image/bandmember.jpg" alt="" class="img-member">
+                        <img src="./assets/image/bandmember.jpg" alt="" class="img-member">
                     </div>
                     <div class="about-image__member">
                         <p style="font-size:17px">Name</p>
-                        <img src="assets/image/bandmember.jpg" alt="" class="img-member">
+                        <img src="./assets/image/bandmember.jpg" alt="" class="img-member">
                     </div>
                 </div>
 
@@ -79,7 +80,7 @@
                             <p class="tour-buy-text__city"><b>New York</b></p>
                             <p class="tour-buy-text__date">Fri 27 Nov 2016</p>
                             <p class="tour-buy-text__content">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                            <button class="tour-buy-btn">Buy Tickets</button>
+                            <button class="tour-buy-btn js-buy-ticket">Buy Tickets</button>
                         </div>
                     </div>
                     <div class="tour-buy__item">
@@ -88,7 +89,7 @@
                             <p class="tour-buy-text__city"><b>Paris</b></p>
                             <p class="tour-buy-text__date">Sat 28 Nov 2016</p>
                             <p class="tour-buy-text__content">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                            <button class="tour-buy-btn">Buy Tickets</button>
+                            <button class="tour-buy-btn js-buy-ticket">Buy Tickets</button>
                         </div>
                     </div>
                     <div class="tour-buy__item">
@@ -97,7 +98,7 @@
                             <p class="tour-buy-text__city"><b>San Francisco</b></p>
                             <p class="tour-buy-text__date">Sun 29 Nov 2016</p>
                             <p class="tour-buy-text__content">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                            <button class="tour-buy-btn">Buy Tickets</button>
+                            <button class="tour-buy-btn js-buy-ticket">Buy Tickets</button>
                         </div>
                     </div>
                 </div>
@@ -140,6 +141,52 @@
             <p class="footer-author">Remade by <a href="https://www.facebook.com/GutBoi98/" title="Facebook">Pham The Anh</a> </p>
         </div>
     </div>
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close"><i class="fa-solid fa-xmark"></i></div>
+            <header class="modal-header">
+                <i class="fa-solid fa-suitcase"></i> Tickets
+            </header>
+            <div class="modal-body">
+                <label for="quantity" class="modal-label"><i class="fa-solid fa-cart-shopping"></i>Tickets, $15 per person</label>
+                <input class="modal-input" type="text" placeholder="How many?" id="quantity" required>
+
+                <label for="email" class="modal-label"><i class="fa-solid fa-user"></i>Send To</label>
+                <input class="modal-input" type="text" placeholder="Enter email" id="email" required>
+                <button class="modal-btn-buy">PAY <i class="fa-solid fa-check"></i></button>
+                <div class="modal-footer">
+                    Need <a href="#">help</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy-ticket')
+        const modal = document.querySelector('.js-modal')
+        const modalContainer = document.querySelector('.js-modal-container')
+        const modalClose = document.querySelector('.js-modal-close')
+
+        function showByTickets() {
+            modal.classList.add('open')
+        }
+
+        function closeByTickets() {
+            modal.classList.remove('open')
+        }
+
+        for (const buyBtn of buyBtns) {
+            buyBtn.addEventListener('click', showByTickets)
+        }
+
+        modalClose.addEventListener('click', closeByTickets)
+
+        modal.addEventListener('click', closeByTickets)
+
+        modalContainer.addEventListener('click', function() {
+            event.stopPropagation()
+        })
+    </script>
 </body>
 
 </html>
